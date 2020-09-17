@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from 'react';
+import Navbar from './Components/Navbar/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  BrowserRouter,
+} from 'react-router-dom';
+import SignIn from './Components/Form/SignIn';
+import Home from './Components/Home/Home';
+import PlaceDetails from './Components/placeDetails/placeDetails';
 
-function App() {
+export const UserContext = createContext();
+export const PlaceContext = createContext();
+
+function App(props) {
+  const [user, setUser] = useState({});
+  const [places, setPlaces] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <UserContext.Provider value={[user, setUser]}>
+        <PlaceContext.Provider>
+          <div className='container'>
+            <Navbar />
+            <PlaceDetails />
+          </div>
+        </PlaceContext.Provider>
+      </UserContext.Provider>
+    </BrowserRouter>
   );
 }
 

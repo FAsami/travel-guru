@@ -1,0 +1,138 @@
+.group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input-field {
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #b6b6b6;
+}
+.input-field:focus {
+  outline: none;
+}
+
+.input-label {
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.input-field:focus ~ .input-label,
+.input-field:valid ~ .input-label {
+  top: -20px;
+  font-size: 14px;
+  color: #000;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.bar:before,
+.bar:after {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #1f2129;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+.input-field:focus ~ .bar:before,
+.input-field:focus ~ .bar:after {
+  width: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.input-field:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  opacity: 0.5;
+}
+.hr-text:before {
+  content: '';
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: #070707;
+  background-color: #fcfcfa;
+}
