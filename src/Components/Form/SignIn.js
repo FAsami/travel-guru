@@ -46,7 +46,7 @@ function SignIn() {
   };
 
   const handleResponse = (res, redirect) => {
-    res.email
+    res.name
       ? setUser(res)
       : setAuthError('There was an error white authenticating');
     if (redirect) {

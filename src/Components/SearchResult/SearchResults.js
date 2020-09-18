@@ -14,7 +14,7 @@ function SearchResults() {
     <div className='row'>
       <div className='col-6'>
         <p className='text-muted'>252 Stays Apr 13-17 252 guests</p>
-        <h3>Stay in Cox's Bazar</h3>
+  <h3>Stay in {place.name}</h3>
         {rooms.map((room) => (
           <ResultCard key={room.id} room={room} />
         ))}
