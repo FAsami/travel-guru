@@ -22,7 +22,7 @@ function SignForm({ isNewUser }) {
   let { from } = location.state || { from: { pathname: '/' } };
 
   const [input, setInput] = useState({});
-  const [error, setError] = useState({});
+  const [error, setError] = useState({ firstNameError: true });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,6 +105,13 @@ function SignForm({ isNewUser }) {
         />
       )}
       <input
+        disabled={
+          error.firstNameError ||
+          error.lastNameError ||
+          error.emailError ||
+          error.passwordError ||
+          error.confirmPasswordError
+        }
         type='submit'
         className='btn btn-warning btn-block font-weight-bold'
         value={isNewUser ? 'Create an account' : 'Login'}
