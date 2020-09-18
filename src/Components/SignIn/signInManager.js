@@ -18,6 +18,7 @@ export const handleGoogleSignIn = () => {
       const signedInUser = {
         name: displayName,
         email: email,
+        error: '',
       };
       return signedInUser;
     })

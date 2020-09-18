@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { PlaceContext } from '../../App';
-import '../Form/inputFieldStyle.css';
+import '../SignIn/inputFieldStyle.css';
 
 function PlaceDetails() {
   const { placeId } = useParams();

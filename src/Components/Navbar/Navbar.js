@@ -2,10 +2,18 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../../image/Logo.png';
+import { handleSignOut } from '../SignIn/signInManager';
 import SearchField from './SearchField';
 
 export default function Navbar() {
-  const [user] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
+
+  const logOut = () => {
+    handleSignOut().then((res) => {
+      setUser(res);
+    });
+  };
+
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
       <button
@@ -49,10 +57,15 @@ export default function Navbar() {
               Contact
             </Link>
           </li>
+          <li className='nav-item'>
+            <Link href='/' className='nav-link'>
+              {user.name ? user.name : null}
+            </Link>
+          </li>
           <li className='nav-item active'>
             <Link className='nav-link' to='/login'>
-              <button className='btn btn-warning'>
-                {user.email ? 'Logout' : 'LogIn'}
+              <button className='btn btn-warning' onClick={logOut}>
+                {user.name ? 'Logout' : 'LogIn'}
               </button>
             </Link>
           </li>

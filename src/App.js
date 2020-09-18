@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import SignIn from './Components/Form/SignIn';
+import SignIn from './Components/SignIn/SignIn';
 import Home from './Components/Home/Home';
 import PlaceDetails from './Components/placeDetails/placeDetails';
 import SearchResults from './Components/SearchResult/SearchResults';
