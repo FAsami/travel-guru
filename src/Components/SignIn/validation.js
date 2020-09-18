@@ -1,7 +1,7 @@
 export const validateFirstName = (firstName, error, setError) => {
   if (!firstName) {
     setError({ ...error, firstName: 'FirstName is required' });
-  } else if (firstName.length < 4) {
+  } else if (firstName.length < 3) {
     setError({
       ...error,
       firstName: 'FirstName must contain at least 3 characters',

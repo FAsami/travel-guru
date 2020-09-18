@@ -25,8 +25,10 @@ function SignForm({ isNewUser }) {
   const [error, setError] = useState({});
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = `${input.firstName} ${input.lastName}`;
     if (isNewUser) {
-      createUserWithEmailAndPassword(user.name, user.email, user.password).then(
+      createUserWithEmailAndPassword(name, input.email, input.password).then(
         (res) => {
           handleResponse(res, true);
         }
@@ -37,7 +39,6 @@ function SignForm({ isNewUser }) {
         handleResponse(res, true);
       });
     }
-    e.preventDefault();
   };
 
   const handleResponse = (res, redirect) => {
@@ -57,7 +58,6 @@ function SignForm({ isNewUser }) {
     if (name === 'password') validatePassword(value, error, setError);
     if (name === 'confirmPassword')
       validateConfirmPassword(input.password, value, error, setError);
-
     setInput({ ...input, [name]: value });
   };
 
@@ -104,12 +104,11 @@ function SignForm({ isNewUser }) {
           error={error.confirmPassword}
         />
       )}
-      <button
+      <input
         type='submit'
         className='btn btn-warning btn-block font-weight-bold'
-      >
-        {isNewUser ? 'Create an account' : 'Login'}
-      </button>
+        value={isNewUser ? 'Create an account' : 'Login'}
+      />
     </form>
   );
 }

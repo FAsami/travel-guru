@@ -58,7 +58,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className='nav-item'>
-            <Link href='/' className='nav-link'>
+            <Link to='/' className='nav-link'>
               {user.name ? user.name : null}
             </Link>
           </li>
