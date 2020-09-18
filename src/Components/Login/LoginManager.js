@@ -25,8 +25,7 @@ export const handleGoogleSignIn = () => {
       return signedInUser;
     })
     .catch((err) => {
-      console.log(err);
-      console.log(err.message);
+      return err.message;
     });
 };
 
@@ -42,9 +41,7 @@ export const handleFbSignIn = () => {
       return user;
     })
     .catch(function (error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      return error.message;
     });
 };
 

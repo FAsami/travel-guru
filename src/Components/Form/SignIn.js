@@ -10,7 +10,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from './signInManager';
-import { useHistory } from 'react-router-dom';
+
+import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 initializeLoginFramework();
@@ -19,8 +20,14 @@ function SignIn() {
   const [user, setUser] = useContext(UserContext);
 
   const history = useHistory();
+  const location = useLocation();
+
   const [error, setError] = useState({});
+  const [authError, setAuthError] = useState('');
+
   const [isNewUser, setIsNewUser] = useState(true);
+
+  let { from } = location.state || { from: { pathname: '/' } };
 
   const googleSignIn = () => {
     handleGoogleSignIn().then((res) => {
@@ -35,44 +42,44 @@ function SignIn() {
   };
 
   const signOut = () => {
-    handleSignOut().then((res) => {
-      handleResponse(res, false);
-    });
+    handleSignOut().then((res) => {});
   };
 
   const handleResponse = (res, redirect) => {
-    setUser(res);
-    // if (redirect) {
-    //   history.replace(from);
-    // }
+    res.email
+      ? setUser(res)
+      : setAuthError('There was an error white authenticating');
+    if (redirect) {
+      history.replace(from);
+    }
   };
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = (e) => {
-    if (user.email && user.password) {
+    if (isNewUser) {
       createUserWithEmailAndPassword(user.name, user.email, user.password).then(
         (res) => {
           handleResponse(res, true);
         }
       );
     }
-
-    // if (user.email && user.password) {
-    //   signInWithEmailAndPassword(user.email, user.password).then((res) => {
-    //     handleResponse(res, true);
-    //   });
-    // }
+    if (!isNewUser) {
+      signInWithEmailAndPassword(user.email, user.password).then((res) => {
+        handleResponse(res, true);
+      });
+    }
     e.preventDefault();
   };
 
-  console.log(user);
   return (
     <div className='row justify-content-center align-items-center'>
       <div className='col-sm-12 col-md-6'>
         <div className='card px-5 pt-2'>
           <h4 className='mb-4'>{isNewUser ? 'Create an account' : 'Login'}</h4>
+          <p>{authError}</p>
           <form onSubmit={handleSubmit}>
             {isNewUser && (
               <>
@@ -153,7 +160,6 @@ function SignIn() {
               {isNewUser ? 'Create an account' : 'Login'}
             </button>
           </form>
-
           <p className='text-center mt-2'>
             {isNewUser
               ? `Already have an account ?`

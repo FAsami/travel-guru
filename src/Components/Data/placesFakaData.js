@@ -1,10 +1,14 @@
-export const places = [
+export const placeData = [
   {
     id: 1,
     name: 'Cox’s Bazar',
     description: `Spilling out into the Bay of Bengal is Cox’s Bazar, an area covered in salty fishing skiffs and bustling jetties.This little town in the far south-east of Bangladesh is known for its stunning beach which stretches for an amazing 120 kilometers from north to south along the side of the balmy Indian Ocean.This is the third longest beach on the planet and you will find local fishermen reeling in the day’s catch as well as bubbling rock pools and crashing turquoise waves that make this a great spot for surfing.`,
     photo:
       'https://res.cloudinary.com/dqv2g1wux/image/upload/v1600317188/photos/places/sundorbon.png',
+    location: {
+      latitude: 21.583331,
+      longitude: 92.0166666,
+    },
     rooms: [
       {
         id: 1,
@@ -55,6 +59,10 @@ export const places = [
     name: 'Srimangal',
     description: `Srimangal is the tea capital of Bangladesh, located in the north-eastern part of the country. You’ll find lush green tea gardens anywhere you go here. This is one of the few places in the country where if you look around, you may not find any other people anywhere except you. A really nice and calm place. Cycling through the trails inside the tea plantations here could be one of the best things you can do in Bangladesh. Also worth visiting is the Lawachhara National Park, and trek to Hamham waterfalls. You can easily spend a few days here with nature. Srimangal comes as number three on our list of the best places to visit in Bangladesh.`,
     photo: `https://res.cloudinary.com/dqv2g1wux/image/upload/v1600317190/photos/places/Sreemongol.png`,
+    location: {
+      latitude: 24.327225,
+      longitude: 91.793526,
+    },
     rooms: [
       {
         id: 1,
@@ -106,6 +114,10 @@ export const places = [
     description: `Sajek valley: Sajek is a union at Baghaichari Upazila in Rangamati districts. Basically it is name of a river which separates Bangladesh from India. The river flows into the Karnafuli River in the Chittagong Hill Tracts. Sajek Valley is situated in the North angle of Rangamati, near the Mizoram border boundary area. The valley is 1,800 ft high form sea lavel. Many small rivers flow through the hills among them Kachalon and Machalong are famous. The main ethnic minorities on the valley are Chakma, Marma, Tripura, Pankua, Lushai and Sagma. The place is known as hill queen for its natural beauty and roof of Rangamati. Marishsha is a name of a place near Sajek Valley. Most of the houses are made with bamboo. There is another place near Sajek, it is Kanlak, and it is famous for its orange orchard.`,
     photo:
       'https://res.cloudinary.com/dqv2g1wux/image/upload/v1600317192/photos/places/Sajek.png',
+    location: {
+      latitude: 23.4056,
+      longitude: 92.2786,
+    },
     rooms: [
       {
         id: 1,
