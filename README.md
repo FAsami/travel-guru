@@ -15,7 +15,8 @@ A full-stack web  application  for travellers where travellers can  see various 
 - User can select an place
 - Users can find rooms nearby 
 - Users can view location on map 
--
+- Travellers can books a room 
+
 
 ### Technologies:
 - React
