@@ -4,7 +4,7 @@
 
 
 
-# [Visit the web site](https://travel-guru-a8924.web.app/);
+# [Visit the web site](https://travel-guru-a8924.web.app/)
 
 A full-stack web  application  for travellers where travellers can  see various features of an places and also find rooms nearby.
 
